@@ -105,6 +105,12 @@
     /* Verde esmeralda profundo — elegante e sofisticado */
     background-color: #0d2b1e;
     background-image: url('./assets/hero_cat_desktop.webp');
+    /* Efeito de carregamento suave para evitar 'pulo' visual */
+    animation: heroFadeIn 1.2s ease-out forwards;
+  }
+  @keyframes heroFadeIn {
+    from { opacity: 0; filter: blur(10px); }
+    to { opacity: 1; filter: blur(0); }
   }
   @media(max-width:880px){
     .hero{
