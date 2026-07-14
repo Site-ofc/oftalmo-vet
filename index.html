@@ -175,7 +175,7 @@
   @media(max-width:720px){.service-grid{grid-template-columns:1fr;}}
 
   /* ===== ABOUT ===== */
-  .about .wrap{display:grid;grid-template-columns:0.85fr 1.15fr;gap:clamp(40px,6vw,80px);align-items:start;}
+  .about .wrap{display:grid;grid-template-columns:0.9fr 1.1fr;gap:clamp(40px,8vw,100px);align-items:center;}
   .about-figure{
     position:relative;border:1px solid var(--line);overflow:hidden;
     background:#f5f1e7;
@@ -242,16 +242,18 @@
   @media(max-width:880px){.contact .wrap{grid-template-columns:1fr;}}
 
   /* ===== FOOTER ===== */
-  footer{padding:60px 0 40px;border-top:1px solid var(--line);background:#fff;}
-  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:32px;}
-  footer .fbrand{font-family:'Fraunces',serif;font-size:1.2rem;display:flex;align-items:center;}
-  footer .fmeta{font-family:'IBM Plex Mono',monospace;font-size:0.75rem;color:var(--ivory-dim);line-height:1.6;text-align:right;}
-  footer .flinks{display:flex;gap:30px;font-size:0.9rem;color:var(--ink-soft);font-weight:400;}
-  footer .flinks a:hover{color:var(--gold);}
-  @media(max-width:880px){
-    footer .wrap{flex-direction:column;align-items:center;text-align:center;}
-    footer .fmeta{text-align:center;margin-top:10px;}
-    footer .flinks{justify-content:center;gap:20px;}
+  footer{padding:80px 0 50px;border-top:1px solid var(--line);background:#fff;}
+  footer .wrap{display:grid;grid-template-columns: 1fr auto 1fr;align-items: center;gap:40px;}
+  footer .fbrand{font-family:'Fraunces',serif;font-size:1.3rem;display:flex;align-items:center;gap:12px;}
+  footer .fmeta{font-family:'IBM Plex Mono',monospace;font-size:0.75rem;color:var(--ivory-dim);line-height:1.8;text-align:right;}
+  footer .flinks{display:flex;gap:40px;font-size:0.95rem;color:var(--ink-soft);font-weight:400;justify-content:center;}
+  footer .flinks a{transition: color 0.3s ease, transform 0.3s ease; display: inline-block;}
+  footer .flinks a:hover{color:var(--gold); transform: translateY(-2px);}
+  @media(max-width:1024px){
+    footer .wrap{grid-template-columns: 1fr; text-align:center; gap:30px;}
+    footer .fbrand{justify-content:center;}
+    footer .fmeta{text-align:center;}
+    footer .flinks{flex-wrap:wrap; gap:20px;}
   }
 
   /* ===== MASCOTE ===== */
