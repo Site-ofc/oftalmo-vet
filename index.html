@@ -242,11 +242,17 @@
   @media(max-width:880px){.contact .wrap{grid-template-columns:1fr;}}
 
   /* ===== FOOTER ===== */
-  footer{padding:56px 0 32px;border-top:1px solid var(--line);}
-  footer .wrap{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;}
-  footer .fbrand{font-family:'Fraunces',serif;font-size:1.1rem;}
-  footer .fmeta{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--ivory-dim);text-align:right;line-height:1.6;}
-  footer .flinks{display:flex;gap:26px;font-size:0.85rem;color:var(--ivory-dim);flex-wrap:wrap;}
+  footer{padding:60px 0 40px;border-top:1px solid var(--line);background:#fff;}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:32px;}
+  footer .fbrand{font-family:'Fraunces',serif;font-size:1.2rem;display:flex;align-items:center;}
+  footer .fmeta{font-family:'IBM Plex Mono',monospace;font-size:0.75rem;color:var(--ivory-dim);line-height:1.6;text-align:right;}
+  footer .flinks{display:flex;gap:30px;font-size:0.9rem;color:var(--ink-soft);font-weight:400;}
+  footer .flinks a:hover{color:var(--gold);}
+  @media(max-width:880px){
+    footer .wrap{flex-direction:column;align-items:center;text-align:center;}
+    footer .fmeta{text-align:center;margin-top:10px;}
+    footer .flinks{justify-content:center;gap:20px;}
+  }
 
   /* ===== MASCOTE ===== */
   .mascote-section{
@@ -470,21 +476,25 @@
   </div>
 </section>  <footer>
     <div class="wrap">
-      <div class="fbrand"><img src="assets/logo.webp" alt="Oftalmo Vet" width="35" height="35" loading="lazy" style="width:35px;height:35px;margin-right:8px;vertical-align:middle;">Oftalmo Vet</div>
-      <div class="flinks" style="margin-top:14px;">
+      <div class="fbrand">
+        <img src="assets/logo.webp" alt="Oftalmo Vet" width="35" height="35" loading="lazy" style="width:35px;height:35px;margin-right:8px;vertical-align:middle;">
+        <span>Oftalmo Vet</span>
+      </div>
+      
+      <div class="flinks">
         <a href="#servicos">Serviços</a>
         <a href="#sobre">Sobre</a>
         <a href="#localizacao">Localização</a>
         <a href="#contato">Contato</a>
       </div>
+
+      <div class="fmeta">
+        <strong>Clínica Veterinária Oftalmo Vet</strong><br>
+        CNPJ 37.655.213/0001-61<br>
+        © 2024 Todos os direitos reservados
+      </div>
     </div>
-    <div class="fmeta">
-      Clínica Veterinária Oftalmo Vet<br>
-      CNPJ 37.655.213/0001-61<br>
-      © 2024 Todos os direitos reservados
-    </div>
-  </div>
-</footer>
+  </footer>
 
 <script>
   const header = document.getElementById('siteHeader');
