@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oftalmo Vet - Oftalmologia Veterinária Premium</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0f3a5c;
+            --secondary: #1a5f7a;
+            --accent: #2d8fa3;
+            --gold: #d4af37;
+            --light: #f5f7fa;
+            --dark: #0a1f2e;
+            --text: #1a1a1a;
+            --text-light: #555;
+            --border: #ddd;
+            --shadow: 0 8px 32px rgba(15, 58, 92, 0.12);
+            --shadow-hover: 0 16px 48px rgba(15, 58, 92, 0.18);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text);
+            background: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            padding: 1.2rem 5%;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo i {
+            color: var(--gold);
+            font-size: 1.6rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.95rem;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold), var(--accent));
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 0.9rem 2.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 700;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(15, 58, 92, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(15, 58, 92, 0.3);
+        }
+
+        /* HERO SECTION - FULL BLEED */
+        .hero {
+            margin-top: 70px;
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -150px;
+            width: 500px;
+            height: 500px;
+            background: rgba(212, 175, 55, 0.08);
+            border-radius: 50%;
+            animation: floatAnimation 25s infinite ease-in-out;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background: rgba(45, 143, 163, 0.06);
+            border-radius: 50%;
+            animation: floatAnimation 30s infinite ease-in-out reverse;
+        }
+
+        @keyframes floatAnimation {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(40px); }
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            padding: 0 5%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            color: white;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-content h1 {
+            font-size: 3.8rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.15;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .hero-content h1 .gold-text {
+            color: var(--gold);
+        }
+
+        .hero-content p {
+            font-size: 1.15rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            line-height: 1.8;
+            letter-spacing: 0.3px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+            padding: 1.1rem 2.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 1.1rem 2.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+            border: 2px solid white;
+            cursor: pointer;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            animation: slideInRight 1s ease-out;
+            text-align: center;
+            position: relative;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 550px;
+            filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.25));
+            animation: floatImage 6s ease-in-out infinite;
+        }
+
+        @keyframes floatImage {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-25px); }
+        }
+
+        /* SEÇÃO DE SERVIÇOS */
+        .services {
+            padding: 7rem 5%;
+            background: linear-gradient(180deg, #ffffff 0%, var(--light) 100%);
+        }
+
+        .services-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .section-title .gold-accent {
+            color: var(--gold);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 4rem;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            letter-spacing: 0.3px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 3rem 2.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .service-card:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .service-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--gold);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            color: var(--gold);
+            box-shadow: 0 8px 20px rgba(15, 58, 92, 0.15);
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        /* GALERIA */
+        .gallery {
+            padding: 7rem 5%;
+            background: white;
+        }
+
+        .gallery-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 1;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: all 0.4s;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(15, 58, 92, 0.85), rgba(45, 143, 163, 0.85));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-text {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        /* SOBRE A CLÍNICA */
+        .about {
+            padding: 7rem 5%;
+            background: linear-gradient(135deg, var(--light) 0%, white 100%);
+        }
+
+        .about-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-content h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .about-content h2 .gold-accent {
+            color: var(--gold);
+        }
+
+        .about-content p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.9;
+            font-size: 1.05rem;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            background: white;
+            padding: 1.8rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--gold);
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+
+        .feature-item:hover {
+            box-shadow: 0 8px 25px rgba(15, 58, 92, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .feature-item h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            font-weight: 800;
+        }
+
+        .feature-item p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .about-image {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* CONTATO */
+        .contact {
+            padding: 7rem 5%;
+            background: white;
+        }
+
+        .contact-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            gap: 1.8rem;
+        }
+
+        .info-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            box-shadow: 0 8px 20px rgba(15, 58, 92, 0.15);
+        }
+
+        .info-content h4 {
+            color: var(--text);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            font-weight: 800;
+        }
+
+        .info-content p {
+            color: var(--text-light);
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .contact-form {
+            background: linear-gradient(135deg, var(--light) 0%, rgba(212, 175, 55, 0.03) 100%);
+            padding: 3rem;
+            border-radius: 16px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.7rem;
+            color: var(--text);
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 130px;
+        }
+
+        .form-submit {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1.1rem 2.8rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+            letter-spacing: 0.5px;
+            box-shadow: 0 8px 25px rgba(15, 58, 92, 0.2);
+        }
+
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(15, 58, 92, 0.3);
+        }
+
+        /* HORÁRIOS */
+        .hours {
+            padding: 7rem 5%;
+            background: linear-gradient(135deg, var(--light) 0%, white 100%);
+        }
+
+        .hours-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hours-table {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-top: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .hours-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .hours-table th {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1.4rem;
+            text-align: left;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .hours-table td {
+            padding: 1.2rem 1.4rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .hours-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .hours-table tr:hover {
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        /* FOOTER */
+        footer {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%);
+            color: white;
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-section p {
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 2rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 2rem 5%;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                text-align: center;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 1.5rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            nav {
+                padding: 0.8rem 4%;
+            }
+
+            .logo {
+                font-size: 1.4rem;
+            }
+
+            .cta-button {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card {
+                padding: 1.5rem;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .feature-item {
+                padding: 1rem;
+            }
+
+            .hours-table td,
+            .hours-table th {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            .contact-form {
+                padding: 1.5rem;
+            }
+        }
+
+        /* SCROLL REVEAL */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo"><i class="fas fa-eye"></i> Oftalmo Vet</div>
+            <ul class="nav-links">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#gallery">Galeria</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+            <button class="cta-button" onclick="document.getElementById('contact').scrollIntoView()">Agende Agora</button>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION - FULL BLEED COM IMAGEM DE FUNDO -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Oftalmologia Veterinária de <span class="gold-text">Excelência</span></h1>
+                <p>Cuidado especializado para a saúde ocular do seu pet. Tecnologia de ponta, profissional qualificada e atendimento personalizado com luxo e sofisticação.</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView()">Agende uma Consulta</button>
+                    <button class="btn-secondary" onclick="document.getElementById('services').scrollIntoView()">Conheça Nossos Serviços</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="assets/mascote.png" alt="Mascote Oftalmo Vet" id="mascote">
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section class="services" id="services">
+        <div class="services-container">
+            <h2 class="section-title">Nossos <span class="gold-accent">Serviços</span></h2>
+            <p class="section-subtitle">Atendimento completo e sofisticado para a saúde oftalmológica e geral do seu pet</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-search"></i></div>
+                    <h3>Consultas Oftalmológicas</h3>
+                    <p>Avaliação completa da saúde ocular do seu pet com equipamentos de última geração. Nossa especialista realiza exame oftalmológico detalhado, diagnosticando desde problemas simples até condições oftalmológicas complexas. Inclui teste de Schirmer, tonometria e biomicroscopia para garantir a melhor visão do seu companheiro.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-syringe"></i></div>
+                    <h3>Vacinação Completa</h3>
+                    <p>Protocolo vacinal atualizado e personalizado para cada espécie e idade. Oferecemos vacinação antirrábica, múltipla viral canina e felina, proteção contra giárdia, gripe canina e FeLV felina. Cada plano é customizado conforme o histórico e estilo de vida do seu pet, garantindo proteção máxima.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-scalpel"></i></div>
+                    <h3>Cirurgia Geral</h3>
+                    <p>Procedimentos cirúrgicos oftalmológicos e gerais realizados com anestesia segura e monitoramento contínuo. Especializada em cirurgias oculares delicadas, cirurgias de ouvido, e procedimentos gerais. Utilizamos técnicas minimamente invasivas e acompanhamento pós-operatório rigoroso para recuperação rápida e segura.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-heart"></i></div>
+                    <h3>Castração</h3>
+                    <p>Procedimento seguro e humanizado para cães e gatos, realizado com técnicas modernas e anestesia segura. Inclui pré-operatório com exames, cirurgia com monitoramento constante, e pós-operatório acompanhado com orientações de cuidados e medicação. Prevenção de doenças reprodutivas e comportamentais.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERIA -->
+    <section class="gallery" id="gallery">
+        <div class="gallery-container">
+            <h2 class="section-title">Nossa <span class="gold-accent">Clínica</span></h2>
+            <p class="section-subtitle">Conheça nosso espaço moderno, acolhedor e sofisticado</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="assets/fachada.webp" alt="Fachada" id="fachada">
+                    <div class="gallery-overlay">
+                        <div class="gallery-text">Fachada Premium</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/recepcao.webp" alt="Recepção" id="recepcao">
+                    <div class="gallery-overlay">
+                        <div class="gallery-text">Recepção Elegante</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/corredor.webp" alt="Corredor" id="corredor">
+                    <div class="gallery-overlay">
+                        <div class="gallery-text">Instalações Modernas</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/consultorio.webp" alt="Consultório" id="consultorio">
+                    <div class="gallery-overlay">
+                        <div class="gallery-text">Consultório Equipado</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section class="about" id="about">
+        <div class="about-container">
+            <div class="about-content">
+                <h2>Sobre a <span class="gold-accent">Oftalmo Vet</span></h2>
+                <p>A Clínica Veterinária Oftalmo Vet é especializada em Oftalmologia Veterinária e Cirurgia de Pequenos Animais, oferecendo cuidado focado na saúde ocular e bem-estar geral de pets com excelência profissional e sofisticação. Fundada em 2020 pela Dra. Marília Aparecida Ribeiro, nossa missão é proporcionar atendimento veterinário de primeira classe, combinando tecnologia de ponta com humanização.</p>
+                <p>Desde nossa criação, atendemos cães, gatos, aves, roedores e animais exóticos com dedicação, sofisticação e carinho genuíno. Nossa clínica é equipada com tecnologia de última geração, ambiente climatizado e acolhedor, garantindo conforto e segurança para seu companheiro felino, canino ou exótico.</p>
+                <p>Acreditamos que cada animal merece atendimento personalizado e de qualidade premium. Por isso, trabalhamos com agendamento prévio, garantindo tempo suficiente para cada consulta e procedimento, sem pressa ou superlotação. Somos credenciados pelo plano Dog Life, facilitando o acesso ao nosso atendimento de excelência.</p>
+                <p>Nossa especialidade em oftalmologia veterinária nos permite diagnosticar e tratar desde condições simples até casos complexos de saúde ocular. Realizamos cirurgias oftalmológicas delicadas, cirurgias de ouvido e procedimentos gerais com anestesia segura e monitoramento contínuo.</p>
+                
+                <div class="about-features">
+                    <div class="feature-item">
+                        <h4>Profissional Qualificada</h4>
+                        <p>Dra. Marília Aparecida Ribeiro - CRMV-MG 12045</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Experiência Comprovada</h4>
+                        <p>Especialista em oftalmologia e cirurgias delicadas</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Equipamentos Premium</h4>
+                        <p>Tecnologia de última geração para diagnósticos precisos</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Atendimento Humanizado</h4>
+                        <p>Ambiente acolhedor e cuidado integral</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="assets/capa.webp" alt="Clínica Oftalmo Vet">
+            </div>
+        </div>
+    </section>
+
+    <!-- HORÁRIOS -->
+    <section class="hours">
+        <div class="hours-container">
+            <h2 class="section-title">Horário de <span class="gold-accent">Atendimento</span></h2>
+            <p class="section-subtitle">Estamos abertos para cuidar do seu pet. Atendimento somente com hora marcada</p>
+            
+            <div class="hours-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Dia da Semana</th>
+                            <th>Horário</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Segunda à Quinta</td>
+                            <td>08:00 - 17:00</td>
+                        </tr>
+                        <tr>
+                            <td>Sexta</td>
+                            <td>08:00 - 17:00</td>
+                        </tr>
+                        <tr>
+                            <td>Sábado</td>
+                            <td>08:00 - 12:00</td>
+                        </tr>
+                        <tr>
+                            <td>Domingo</td>
+                            <td>Fechado</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <h2 class="section-title">Fale <span class="gold-accent">Conosco</span></h2>
+            <p class="section-subtitle">Estamos prontos para atender seu pet com excelência e sofisticação</p>
+            
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="info-content">
+                            <h4>Localização</h4>
+                            <p>Av. das Américas, 800 — Loja 03<br>Centro, Betim - MG, CEP 32600-170</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-phone"></i></div>
+                        <div class="info-content">
+                            <h4>WhatsApp</h4>
+                            <p>+55 31 99786-3666</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-share-alt"></i></div>
+                        <div class="info-content">
+                            <h4>Redes Sociais</h4>
+                            <p>@vetclinicaoftalmo</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-clock"></i></div>
+                        <div class="info-content">
+                            <h4>Atendimento</h4>
+                            <p>Somente com agendamento prévio</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Nome</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Telefone</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="pet">Nome do Pet</label>
+                        <input type="text" id="pet" name="pet">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Mensagem</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="form-submit">Enviar Mensagem</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Oftalmo Vet</h3>
+                    <p>Clínica Veterinária especializada em oftalmologia e cirurgia de pequenos animais com excelência profissional.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Navegação</h3>
+                    <div class="footer-links">
+                        <a href="#home">Início</a>
+                        <a href="#services">Serviços</a>
+                        <a href="#about">Sobre</a>
+                        <a href="#contact">Contato</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contato Rápido</h3>
+                    <div class="footer-links">
+                        <a href="tel:+5531997863666">+55 31 99786-3666</a>
+                        <a href="https://instagram.com/vetclinicaoftalmo" target="_blank">Instagram</a>
+                        <a href="https://google.com/maps" target="_blank">Google Maps</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Clínica Veterinária Oftalmo Vet. Todos os direitos reservados. CNPJ: 37.655.213/0001-61</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // SCROLL ANIMATIONS
+        const revealElements = document.querySelectorAll('.service-card, .about-features .feature-item, .info-item');
+
+        const revealOnScroll = () => {
+            revealElements.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+
+        // FORM SUBMISSION
+        function handleSubmit(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const pet = document.getElementById('pet').value;
+            const message = document.getElementById('message').value;
+
+            const whatsappMessage = `Olá! Meu nome é ${name}. Meu telefone é ${phone}. ${pet ? `Meu pet é ${pet}.` : ''} ${message}`;
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            
+            window.open(`https://wa.me/5531997863666?text=${encodedMessage}`, '_blank');
+
+            document.querySelector('.contact-form').reset();
+        }
+
+        // NAVBAR SCROLL EFFECT
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.12)';
+            } else {
+                nav.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.08)';
+            }
+        });
+    </script>
+</body>
+</html>

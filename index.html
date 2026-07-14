@@ -9,19 +9,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#0F1512;
-    --ink-soft:#161E1A;
-    --ivory:#F5F1E7;
-    --ivory-dim:#B9B4A4;
-    --gold:#BE9A5C;
-    --gold-dim:#8C7440;
-    --line:rgba(245,241,231,0.13);
+    --ink:#1a1a1a;
+    --ink-soft:#2d2d2d;
+    --ivory:#fafaf8;
+    --ivory-dim:#5a5a5a;
+    --gold:#be9a5c;
+    --gold-dim:#8c7440;
+    --line:rgba(26,26,26,0.08);
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
-    background:var(--ink);
-    color:var(--ivory);
+    background:var(--ivory);
+    color:var(--ink);
     font-family:'Inter',sans-serif;
     font-weight:300;
     overflow-x:hidden;
@@ -43,11 +43,11 @@
   header.site{
     position:fixed;top:0;left:0;right:0;z-index:200;
     padding:24px 0;
-    background:linear-gradient(to bottom, rgba(15,21,18,0.9), transparent);
+    background:linear-gradient(to bottom, rgba(250,250,248,0.95), transparent);
     transition:background .4s ease, padding .4s ease;
   }
   header.site.scrolled{
-    background:rgba(15,21,18,0.94);backdrop-filter:blur(10px);
+    background:rgba(250,250,248,0.98);backdrop-filter:blur(10px);
     padding:15px 0;border-bottom:1px solid var(--line);
   }
   nav.wrap{display:flex;align-items:center;justify-content:space-between;}
@@ -55,7 +55,7 @@
   .brand .mark{width:19px;height:19px;border-radius:50%;border:1px solid var(--gold);position:relative;flex-shrink:0;}
   .brand .mark::after{content:"";position:absolute;inset:6px;background:var(--gold);border-radius:50%;}
   .navlinks{display:flex;gap:36px;font-size:0.85rem;}
-  .navlinks a{opacity:0.78;transition:opacity .25s;}
+  .navlinks a{opacity:0.7;transition:opacity .25s;color:var(--ink);}
   .navlinks a:hover{opacity:1;color:var(--gold);}
   .btn-cta{
     border:1px solid var(--gold);padding:11px 24px;font-size:0.75rem;
@@ -90,12 +90,16 @@
   /* ===== HERO ===== */
   .hero{
     position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;
-    background:radial-gradient(ellipse at 78% 45%, #1B2621 0%, #0F1512 60%);
+    background-size:cover;background-position:center;background-repeat:no-repeat;
     padding-top:110px;
   }
+  .hero::before{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(to right, rgba(250,250,248,0.95) 0%, rgba(250,250,248,0.3) 100%);
+    z-index:1;
+  }
   .iris-field{
-    position:absolute;right:-8%;top:50%;transform:translateY(-50%);
-    width:min(52vw,720px);height:min(52vw,720px);opacity:0.95;
+    display:none;
   }
   .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr 0.85fr;gap:40px;align-items:center;padding-bottom:70px;}
   .hero h1{font-size:clamp(2.3rem,5.4vw,4.5rem);line-height:1.05;margin:20px 0 24px;}
@@ -130,10 +134,10 @@
   .divider{width:56px;height:1px;background:var(--gold);}
 
   /* ===== SERVICES ===== */
-  .services{background:var(--ink-soft);}
+  .services{background:#fafaf8;}
   .service-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
-  .service{background:var(--ink-soft);padding:clamp(34px,4vw,52px) clamp(26px,4vw,46px);transition:background .35s;}
-  .service:hover{background:#1c2622;}
+  .service{background:#ffffff;padding:clamp(34px,4vw,52px) clamp(26px,4vw,46px);transition:background .35s;}
+  .service:hover{background:#f0ede5;}
   .service .idx{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--gold);letter-spacing:0.1em;}
   .service h3{font-size:clamp(1.25rem,2vw,1.5rem);margin:18px 0 14px;}
   .service p{color:var(--ivory-dim);line-height:1.75;font-size:0.92rem;}
@@ -143,7 +147,7 @@
   .about .wrap{display:grid;grid-template-columns:0.85fr 1.15fr;gap:clamp(40px,6vw,80px);align-items:start;}
   .about-figure{
     aspect-ratio:4/5;position:relative;border:1px solid var(--line);overflow:hidden;
-    background:#121814;
+    background:#f5f1e7;
   }
   .about-figure svg{width:100%;height:100%;}
   .about p{color:var(--ivory-dim);line-height:1.85;margin-bottom:20px;font-size:1rem;}
@@ -158,10 +162,10 @@
   @media(max-width:880px){.about .wrap{grid-template-columns:1fr;}.feat-grid{grid-template-columns:1fr;}.about-figure{aspect-ratio:16/10;}}
 
   /* ===== GALLERY — real images rendered inline via SVG/duotone photography ===== */
-  .gallery{background:var(--ink-soft);}
+  .gallery{background:#fafaf8;}
   .gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
   .gal-item{
-    aspect-ratio:3/4;position:relative;overflow:hidden;background:#101613;
+    aspect-ratio:3/4;position:relative;overflow:hidden;background:#f5f1e7;
   }
   .gal-item svg{position:absolute;inset:0;width:100%;height:100%;transition:transform .6s ease;}
   .gal-item:hover svg{transform:scale(1.06);}
@@ -183,7 +187,7 @@
   @media(max-width:880px){.location .wrap{grid-template-columns:1fr;}}
 
   /* ===== CONTACT ===== */
-  .contact{background:var(--ink-soft);}
+  .contact{background:#f5f1e7;}
   .contact .wrap{display:grid;grid-template-columns:0.9fr 1.1fr;gap:clamp(40px,6vw,80px);}
   .contact-info .line{display:flex;flex-direction:column;gap:5px;padding:20px 0;border-bottom:1px solid var(--line);}
   .contact-info .line a,.contact-info .line span{font-size:clamp(0.95rem,2vw,1.05rem);font-family:'Fraunces',serif;word-break:break-word;}
@@ -214,7 +218,7 @@
 
 <header class="site" id="siteHeader">
   <nav class="wrap">
-    <a href="#top" class="brand"><span class="mark"></span>Oftalmo Vet</a>
+    <a href="#top" class="brand"><img src="assets/logo.png" alt="Oftalmo Vet" style="width:40px;height:40px;margin-right:8px;vertical-align:middle;">Oftalmo Vet</a>
     <div class="navlinks">
       <a href="#servicos">Serviços</a>
       <a href="#sobre">Sobre</a>
@@ -236,38 +240,17 @@
   <a href="#contato" class="btn-cta">Agendar</a>
 </div>
 
+  <script>
+    if(window.innerWidth > 880) document.querySelector('.hero').style.backgroundImage = "url('assets/capa_desktop.webp)";
+    else document.querySelector('.hero').style.backgroundImage = "url('assets/capa_mobile.webp')";
+    window.addEventListener('resize', () => {
+      if(window.innerWidth > 880) document.querySelector('.hero').style.backgroundImage = "url('assets/capa_desktop.webp')";
+      else document.querySelector('.hero').style.backgroundImage = "url('assets/capa_mobile.webp')";
+    });
+  </script>
+
 <section class="hero" id="top">
-  <div class="iris-field">
-    <svg viewBox="0 0 600 600" fill="none">
-      <defs>
-        <radialGradient id="irisGrad" cx="0.5" cy="0.5" r="0.5">
-          <stop offset="0%" stop-color="#3E4E41"/>
-          <stop offset="65%" stop-color="#1B2621"/>
-          <stop offset="100%" stop-color="#0F1512"/>
-        </radialGradient>
-        <radialGradient id="pupilGrad" cx="0.4" cy="0.35" r="0.7">
-          <stop offset="0%" stop-color="#242E28"/>
-          <stop offset="100%" stop-color="#0A0D0B"/>
-        </radialGradient>
-      </defs>
-      <circle cx="300" cy="300" r="290" stroke="#BE9A5C" stroke-opacity="0.22"/>
-      <circle cx="300" cy="300" r="230" fill="url(#irisGrad)"/>
-      <g stroke="#BE9A5C" stroke-opacity="0.35">
-        <line x1="300" y1="72" x2="300" y2="150"/>
-        <line x1="300" y1="450" x2="300" y2="528"/>
-        <line x1="72" y1="300" x2="150" y2="300"/>
-        <line x1="450" y1="300" x2="528" y2="300"/>
-        <line x1="132" y1="132" x2="185" y2="185"/>
-        <line x1="415" y1="415" x2="468" y2="468"/>
-        <line x1="132" y1="468" x2="185" y2="415"/>
-        <line x1="415" y1="185" x2="468" y2="132"/>
-      </g>
-      <circle cx="300" cy="300" r="95" fill="url(#pupilGrad)"/>
-      <circle cx="300" cy="300" r="95" stroke="#BE9A5C" stroke-opacity="0.5"/>
-      <circle cx="332" cy="266" r="20" fill="#F5F1E7" fill-opacity="0.14"/>
-      <circle cx="270" cy="335" r="9" fill="#F5F1E7" fill-opacity="0.08"/>
-    </svg>
-  </div>
+  <div class="iris-field"></div>
   <div class="wrap">
     <div class="hero-copy reveal in">
       <span class="eyebrow">Oftalmologia Veterinária · Betim, MG</span>
@@ -323,21 +306,7 @@
 <section class="about" id="sobre">
   <div class="wrap">
     <div class="about-figure reveal">
-      <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
-        <defs>
-          <radialGradient id="figGrad" cx="0.5" cy="0.4" r="0.75">
-            <stop offset="0%" stop-color="#2A3830"/>
-            <stop offset="100%" stop-color="#0D1210"/>
-          </radialGradient>
-        </defs>
-        <rect width="400" height="500" fill="url(#figGrad)"/>
-        <path d="M60 260 C 100 150, 300 150, 340 260 C 300 370, 100 370, 60 260 Z" fill="none" stroke="#BE9A5C" stroke-width="1.2" stroke-opacity="0.6"/>
-        <circle cx="200" cy="260" r="58" fill="#12181A" stroke="#BE9A5C" stroke-width="1.2" stroke-opacity="0.7"/>
-        <circle cx="200" cy="260" r="24" fill="#060807"/>
-        <circle cx="215" cy="244" r="8" fill="#F5F1E7" fill-opacity="0.16"/>
-        <line x1="200" y1="150" x2="200" y2="110" stroke="#BE9A5C" stroke-opacity="0.4"/>
-        <line x1="200" y1="370" x2="200" y2="410" stroke="#BE9A5C" stroke-opacity="0.4"/>
-      </svg>
+      <img src="assets/capa.webp" alt="Dra. Marília Ribeiro" style="width:100%;height:100%;object-fit:cover;">
     </div>
     <div class="about-copy reveal">
       <div class="sec-head" style="margin-bottom:0;">
@@ -388,43 +357,19 @@
     </div>
     <div class="gal-grid reveal">
       <div class="gal-item">
-        <svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice">
-          <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#2A362E"/><stop offset="100%" stop-color="#0D1210"/></linearGradient></defs>
-          <rect width="300" height="400" fill="url(#g1)"/>
-          <rect x="30" y="70" width="240" height="260" fill="none" stroke="#BE9A5C" stroke-opacity="0.55"/>
-          <rect x="60" y="100" width="80" height="200" fill="none" stroke="#BE9A5C" stroke-opacity="0.35"/>
-          <rect x="160" y="100" width="80" height="120" fill="none" stroke="#BE9A5C" stroke-opacity="0.35"/>
-          <circle cx="200" cy="255" r="26" fill="none" stroke="#BE9A5C" stroke-opacity="0.5"/>
-        </svg>
+        <img src="assets/fachada.webp" alt="Fachada" style="width:100%;height:100%;object-fit:cover;">
         <div class="cap"><span class="eyebrow">Fachada</span><h4>Entrada Premium</h4></div>
       </div>
       <div class="gal-item">
-        <svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice">
-          <defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#293830"/><stop offset="100%" stop-color="#0C1110"/></linearGradient></defs>
-          <rect width="300" height="400" fill="url(#g2)"/>
-          <circle cx="150" cy="170" r="88" fill="none" stroke="#BE9A5C" stroke-opacity="0.45"/>
-          <circle cx="150" cy="170" r="48" fill="none" stroke="#BE9A5C" stroke-opacity="0.6"/>
-          <rect x="40" y="290" width="220" height="4" fill="#BE9A5C" fill-opacity="0.3"/>
-        </svg>
+        <img src="assets/recepcao.webp" alt="Recepção" style="width:100%;height:100%;object-fit:cover;">
         <div class="cap"><span class="eyebrow">Recepção</span><h4>Espaço Elegante</h4></div>
       </div>
       <div class="gal-item">
-        <svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice">
-          <defs><linearGradient id="g3" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#25322B"/><stop offset="100%" stop-color="#0B0F0D"/></linearGradient></defs>
-          <rect width="300" height="400" fill="url(#g3)"/>
-          <path d="M30 340 L150 60 L270 340 Z" fill="none" stroke="#BE9A5C" stroke-opacity="0.45"/>
-          <path d="M90 340 L150 190 L210 340" fill="none" stroke="#BE9A5C" stroke-opacity="0.6"/>
-        </svg>
+        <img src="assets/corredor.webp" alt="Instalações" style="width:100%;height:100%;object-fit:cover;">
         <div class="cap"><span class="eyebrow">Instalações</span><h4>Ambiente Moderno</h4></div>
       </div>
       <div class="gal-item">
-        <svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice">
-          <defs><linearGradient id="g4" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#2C3931"/><stop offset="100%" stop-color="#0D1210"/></linearGradient></defs>
-          <rect width="300" height="400" fill="url(#g4)"/>
-          <rect x="60" y="90" width="180" height="220" fill="none" stroke="#BE9A5C" stroke-opacity="0.5"/>
-          <circle cx="150" cy="195" r="34" fill="none" stroke="#BE9A5C" stroke-opacity="0.65"/>
-          <circle cx="150" cy="195" r="12" fill="#BE9A5C" fill-opacity="0.3"/>
-        </svg>
+        <img src="assets/consultorio.webp" alt="Consultório" style="width:100%;height:100%;object-fit:cover;">
         <div class="cap"><span class="eyebrow">Consultório</span><h4>Totalmente Equipado</h4></div>
       </div>
     </div>
@@ -475,12 +420,9 @@
       <button type="submit" class="btn-primary submit">Enviar mensagem</button>
     </form>
   </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <div>
-      <div class="fbrand">Oftalmo Vet</div>
+</section>  <footer>
+    <div class="wrap">
+      <div class="fbrand"><img src="assets/logo.png" alt="Oftalmo Vet" style="width:35px;height:35px;margin-right:8px;vertical-align:middle;">Oftalmo Vet</div>
       <div class="flinks" style="margin-top:14px;">
         <a href="#servicos">Serviços</a>
         <a href="#sobre">Sobre</a>
