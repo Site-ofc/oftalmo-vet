@@ -121,7 +121,7 @@
   }
   .hero::before{
     content:'';position:absolute;inset:0;
-    /* Gradiente verde escuro -> transparente para destacar o texto */
+    /* Gradiente verde escuro → transparente para destacar o texto */
     background:linear-gradient(to right, rgba(10,36,24,0.82) 0%, rgba(10,36,24,0.45) 55%, transparent 100%);
     z-index:1;
   }
@@ -133,186 +133,223 @@
   .iris-field{
     display:none;
   }
-  .hero .wrap{position:relative;z-index:2;width:100%;}
-  .hero-content{max-width:640px;}
-  .hero h1{
-    font-size:clamp(2.5rem,8vw,4.5rem);line-height:1.05;margin:20px 0 30px;
-    color:#fff;
+  .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr 0.85fr;gap:40px;align-items:center;padding-bottom:70px;}
+  .hero h1{font-size:clamp(2.3rem,5.4vw,4.5rem);line-height:1.05;margin:20px 0 24px;color:#fff; text-shadow: 0 2px 10px rgba(0,0,0,0.4);}
+  .hero h1 em{font-style:italic;color:var(--gold);}
+  .hero p.lead{max-width:440px;font-size:clamp(0.95rem,1.4vw,1.05rem);line-height:1.75;color:rgba(255,255,255,0.95);margin-bottom:34px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);}
+  .hero-ctas{display:flex;gap:16px;flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--gold);color:var(--ink);padding:16px 32px;font-family:'IBM Plex Mono',monospace;
+    font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;border:1px solid var(--gold);
+    transition:background .3s,color .3s;
   }
-  .hero p{font-size:1.15rem;line-height:1.6;color:rgba(255,255,255,0.85);margin-bottom:40px;max-width:480px;}
-  .hero-btns{display:flex;gap:20px;flex-wrap:wrap;}
+  .btn-primary:hover{background:transparent;color:var(--gold);}
+  .btn-ghost{
+    padding:16px 28px;border:1px solid var(--line);font-family:'IBM Plex Mono',monospace;
+    font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;transition:border-color .3s;
+  }
+  .btn-ghost:hover{border-color:var(--gold);}
+  .hero-stats{display:flex;flex-direction:column;border-top:1px solid var(--line);margin-top:8px;}
+  .hero-stats div{display:flex;justify-content:space-between;align-items:baseline;padding:17px 0;border-bottom:1px solid var(--line);gap:12px;}
+  .hero-stats .n{font-family:'Fraunces',serif;font-size:1.5rem;color:var(--gold);white-space:nowrap;}
+  .hero-stats .l{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;letter-spacing:0.06em;color:var(--ivory-dim);text-transform:uppercase;text-align:right;}
+  @media(max-width:880px){
+    .hero .wrap{grid-template-columns:1fr;padding-bottom:60px;}
+    .iris-field{opacity:0.3;width:120vw;height:120vw;right:-30%;top:38%;}
+    .hero-side{margin-top:10px;}
+  }
 
-  .hero-stats{
-    margin-top:80px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.1);
-    display:grid;grid-template-columns:repeat(3,1fr);gap:40px;
-  }
-  .hero-stats .n{display:block;font-family:'Fraunces',serif;font-size:2rem;margin-bottom:8px;}
-  .hero-stats .l{font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;opacity:0.6;}
-
-  @media(max-width:600px){
-    .hero-stats{grid-template-columns:1fr;gap:0;}
-    .hero-stats div{padding:24px 0;border-bottom:1px solid rgba(255,255,255,0.1);}
-    .hero-stats div:last-child{border-bottom:none;}
-  }
+  /* ===== SECTION SHARED ===== */
+  section{padding:clamp(70px,10vw,130px) 0;position:relative;}
+  .sec-head{margin-bottom:clamp(40px,6vw,70px);max-width:640px;}
+  .sec-head h2{font-size:clamp(1.8rem,3.6vw,3rem);margin-top:14px;}
+  .divider{width:56px;height:1px;background:var(--gold);}
 
   /* ===== SERVICES ===== */
-  .services{padding:140px 0;background:#fff;}
-  .section-head{max-width:600px;margin-bottom:80px;}
-  .section-head h2{font-size:2.8rem;margin:16px 0 24px;}
+  .services{background:#fafaf8;}
+  .service-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  .service{background:#ffffff;padding:clamp(34px,4vw,52px) clamp(26px,4vw,46px);transition:background .35s;}
+  .service:hover{background:#f0ede5;}
+  .service .idx{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--gold);letter-spacing:0.1em;}
+  .service h3{font-size:clamp(1.25rem,2vw,1.5rem);margin:18px 0 14px;}
+  .service p{color:var(--ivory-dim);line-height:1.75;font-size:0.92rem;}
+  @media(max-width:720px){.service-grid{grid-template-columns:1fr;}}
 
-  .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);}
-  .service-card{background:#fff;padding:60px 40px;transition:background .4s;}
-  .service-card:hover{background:var(--ivory);}
-  .service-card .icon{width:32px;height:32px;color:var(--gold);margin-bottom:30px;}
-  .service-card h3{font-size:1.5rem;margin-bottom:16px;}
-  .service-card p{font-size:0.95rem;line-height:1.6;color:var(--ivory-dim);}
-
-  /* ===== ABOUT / DRA ===== */
-  .about{padding:140px 0;background:var(--ivory);overflow:hidden;}
-  .about-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:80px;align-items:center;}
-  .about-img{position:relative;}
-  .about-img img{width:100%;height:auto;filter:grayscale(0.2);}
-  .about-img::after{
-    content:'';position:absolute;top:30px;right:-30px;bottom:-30px;left:30px;
-    border:1px solid var(--gold);z-index:-1;
+  /* ===== ABOUT ===== */
+  .about .wrap{display:grid;grid-template-columns:0.9fr 1.1fr;gap:clamp(40px,8vw,100px);align-items:center;}
+  .about-figure{
+    position:relative;border:1px solid var(--line);overflow:hidden;
+    background:#f5f1e7;
+    line-height: 0;
   }
-  .about-content h2{font-size:2.8rem;margin:16px 0 30px;}
-  .about-content p{font-size:1.05rem;line-height:1.7;color:var(--ink-soft);margin-bottom:24px;}
-
-  .credentials{
-    margin-top:40px;padding:30px;background:#fff;border-left:3px solid var(--gold);
+  .about-figure img{
+    width:100%;
+    height:auto;
+    display:block;
+    object-fit: contain;
   }
-  .credentials h4{font-family:'IBM Plex Mono',monospace;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:15px;color:var(--gold);}
-  .credentials ul{list-style:none;}
-  .credentials li{font-size:0.9rem;margin-bottom:10px;display:flex;gap:12px;color:var(--ink-soft);}
-  .credentials li::before{content:"—";color:var(--gold);}
+  .about p{color:var(--ivory-dim);line-height:1.85;margin-bottom:20px;font-size:1rem;}
+  .about-cred{margin-top:28px;padding-top:24px;border-top:1px solid var(--line);}
+  .about-cred .role{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;letter-spacing:0.08em;color:var(--gold);text-transform:uppercase;}
+  .about-cred h3{font-size:1.25rem;margin-top:8px;}
+  .feat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;margin-top:48px;}
+  .feat{border-left:1px solid var(--gold);padding-left:16px;}
+  .feat .eyebrow{display:block;margin-bottom:8px;}
+  .feat h4{font-family:'Fraunces',serif;font-size:1.05rem;margin-bottom:6px;}
+  .feat span.d{color:var(--ivory-dim);font-size:0.86rem;line-height:1.6;}
+  @media(max-width:880px){.about .wrap{grid-template-columns:1fr;}.feat-grid{grid-template-columns:1fr;}.about-figure{aspect-ratio:auto;}}
 
-  @media(max-width:900px){
-    .about-grid{grid-template-columns:1fr;gap:60px;}
-    .about-img{max-width:500px;margin:0 auto;}
+  /* ===== GALLERY — real images rendered inline via SVG/duotone photography ===== */
+  .gallery{background:#fafaf8;}
+  .gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  .gal-item{
+    aspect-ratio:3/4;position:relative;overflow:hidden;background:#f5f1e7;
   }
+  .gal-item svg{position:absolute;inset:0;width:100%;height:100%;transition:transform .6s ease;}
+  .gal-item:hover svg{transform:scale(1.06);}
+  .gal-item .cap{
+    position:absolute;left:0;right:0;bottom:0;padding:22px;z-index:2;
+    background:linear-gradient(to top, rgba(15,21,18,0.92), transparent 70%);
+  }
+  .gal-item .cap h4{font-family:'Fraunces',serif;font-size:1.02rem;color:var(--ivory);margin-top:4px;}
+  @media(max-width:880px){.gal-grid{grid-template-columns:repeat(2,1fr);}}
 
-  /* ===== GALERIA ===== */
-  .gallery-section { padding: 140px 0; background: #fff; }
-  .gallery-container { margin-top: 60px; }
-  .gallery-group { margin-bottom: 100px; }
-  .gallery-group:last-child { margin-bottom: 0; }
-  .gallery-group h3 { font-size: 1.8rem; margin-bottom: 30px; padding-left: 10px; border-left: 3px solid var(--gold); }
+  /* ===== LOCATION ===== */
+  .location .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,70px);}
+  .hours-table{width:100%;border-collapse:collapse;margin-top:26px;}
+  .hours-table td{padding:15px 0;border-bottom:1px solid var(--line);font-size:0.92rem;}
+  .hours-table td:first-child{color:var(--ivory-dim);}
+  .hours-table td:last-child{text-align:right;font-family:'IBM Plex Mono',monospace;font-size:0.82rem;color:var(--gold);}
+  .map-frame{aspect-ratio:4/3;border:1px solid var(--line);}
+  .map-frame iframe{width:100%;height:100%;border:0;}
+  @media(max-width:880px){.location .wrap{grid-template-columns:1fr;}}
 
-  .swiper { width: 100%; padding-bottom: 50px !important; }
-  .swiper-slide { width: auto; height: 450px; }
-  .swiper-slide img { height: 100%; width: auto; object-fit: cover; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
-  @media(max-width: 600px) { .swiper-slide { height: 320px; } }
-
-  /* ===== CTA ===== */
-  .cta-final{padding:120px 0;background:var(--ink);color:#fff;text-align:center;}
-  .cta-final h2{font-size:clamp(2rem,6vw,3.5rem);margin-bottom:30px;}
-  .cta-final p{font-size:1.1rem;opacity:0.7;margin-bottom:40px;max-width:600px;margin-left:auto;margin-right:auto;}
+  /* ===== CONTACT ===== */
+  .contact{background:#f5f1e7;}
+  .contact .wrap{display:grid;grid-template-columns:0.9fr 1.1fr;gap:clamp(40px,6vw,80px);}
+  .contact-info .line{display:flex;flex-direction:column;gap:5px;padding:20px 0;border-bottom:1px solid var(--line);}
+  .contact-info .line a,.contact-info .line span{font-size:clamp(0.95rem,2vw,1.05rem);font-family:'Fraunces',serif;word-break:break-word;}
+  form.card{display:flex;flex-direction:column;gap:20px;}
+  .field{display:flex;flex-direction:column;gap:8px;}
+  .field label{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ivory-dim);}
+  .field input,.field textarea{
+    background:transparent;border:none;border-bottom:1px solid var(--line);color:var(--ivory);
+    font-family:'Inter',sans-serif;font-size:1rem;font-weight:300;padding:10px 2px;outline:none;
+    transition:border-color .3s;width:100%;
+  }
+  .field input:focus,.field textarea:focus{border-color:var(--gold);}
+  textarea{resize:vertical;min-height:90px;}
+  .submit{align-self:flex-start;margin-top:8px;cursor:pointer;}
+  @media(max-width:880px){.contact .wrap{grid-template-columns:1fr;}}
 
   /* ===== FOOTER ===== */
-  footer{padding:80px 0 40px;background:var(--ivory);border-top:1px solid var(--line);}
-  .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:60px;margin-bottom:60px;}
-  .footer-logo{font-family:'Fraunces',serif;font-size:1.5rem;margin-bottom:20px;}
-  .footer-col h5{font-family:'IBM Plex Mono',monospace;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:25px;color:var(--ivory-dim);}
-  .footer-col p, .footer-col a{font-size:0.9rem;line-height:1.6;color:var(--ink-soft);display:block;margin-bottom:12px;}
-  .footer-bottom{padding-top:40px;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-size:0.75rem;color:var(--ivory-dim);}
-
-  @media(max-width:800px){
-    .footer-grid{grid-template-columns:1fr;gap:40px;}
+  footer{padding:80px 0 50px;border-top:1px solid var(--line);background:#fff;}
+  footer .wrap{display:grid;grid-template-columns: 1fr auto 1fr;align-items: center;gap:40px;}
+  footer .fbrand{font-family:'Fraunces',serif;font-size:1.3rem;display:flex;align-items:center;gap:12px;}
+  footer .fmeta{font-family:'IBM Plex Mono',monospace;font-size:0.75rem;color:var(--ivory-dim);line-height:1.8;text-align:right;}
+  footer .flinks{display:flex;gap:40px;font-size:0.95rem;color:var(--ink-soft);font-weight:400;justify-content:center;}
+  footer .flinks a{transition: color 0.3s ease, transform 0.3s ease; display: inline-block;}
+  footer .flinks a:hover{color:var(--gold); transform: translateY(-2px);}
+  @media(max-width:1024px){
+    footer .wrap{grid-template-columns: 1fr; text-align:center; gap:30px;}
+    footer .fbrand{justify-content:center;}
+    footer .fmeta{text-align:center;}
+    footer .flinks{flex-wrap:wrap; gap:20px;}
   }
 
-  /* UTILS */
-  .btn{
-    display:inline-block;padding:18px 36px;font-family:'IBM Plex Mono',monospace;
-    font-size:0.8rem;text-transform:uppercase;letter-spacing:0.15em;
-    transition:all .3s ease;cursor:pointer;border:none;
+  /* ===== MASCOTE ===== */
+  .mascote-section{
+    position:relative;margin-top:-80px;padding:0 0 60px;z-index:10;text-align:center;
   }
-  .btn-gold{background:var(--gold);color:var(--ink);}
-  .btn-gold:hover{background:var(--gold-dim);transform:translateY(-2px);}
-  .btn-ghost{border:1px solid var(--line);color:var(--ink);}
-  .btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+  .mascote-section img{
+    max-width:300px;width:100%;height:auto;filter:drop-shadow(0 10px 30px rgba(0,0,0,0.15));
+  }
+  @media(max-width:880px){
+    .mascote-section{margin-top:-60px;}
+    .mascote-section img{max-width:200px;}
+  }
 
-  /* Swiper Custom */
-  .swiper-pagination-bullet-active { background: var(--gold) !important; }
-  .swiper-button-next, .swiper-button-prev { color: var(--gold) !important; }
+  ::selection{background:var(--gold);color:var(--ink);}
 </style>
-
-<!-- Swiper CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
 </head>
 <body>
 
-<header class="site">
+<header class="site" id="siteHeader">
   <nav class="wrap">
-    <a href="#" class="brand">
-      <div class="mark"></div>
-      <span>Oftalmo Vet</span>
-    </a>
+    <a href="#top" class="brand"><img src="assets/logo.png" alt="Oftalmo Vet" width="40" height="40" style="width:40px;height:40px;margin-right:8px;vertical-align:middle;">Oftalmo Vet</a>
     <div class="navlinks">
       <a href="#servicos">Serviços</a>
+      <a href="#tratamentos">Tratamentos</a>
       <a href="#sobre">Sobre</a>
-      <a href="#galeria">Casos e Exames</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#localizacao">Localização</a>
       <a href="#contato">Contato</a>
     </div>
-    <a href="https://wa.me/5531997863666" target="_blank" class="btn-cta desktop">Agendar Consulta</a>
-    <button class="navtoggle" id="navtoggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+    <a href="#contato" class="btn-cta desktop">Agendar</a>
+    <button class="navtoggle" id="navToggle" aria-label="menu"><span></span><span></span><span></span></button>
   </nav>
 </header>
 
-<div class="mobile-menu" id="mobilemenu">
+<div class="mobile-menu" id="mobileMenu">
   <a href="#servicos">Serviços</a>
+  <a href="#tratamentos">Tratamentos</a>
   <a href="#sobre">Sobre</a>
-  <a href="#galeria">Casos e Exames</a>
+  <a href="#galeria">Galeria</a>
+  <a href="#localizacao">Localização</a>
   <a href="#contato">Contato</a>
-  <a href="https://wa.me/5531997863666" target="_blank" class="btn-cta">Agendar Consulta</a>
+  <a href="#contato" class="btn-cta">Agendar</a>
 </div>
 
-<section class="hero">
+<!-- JavaScript de troca de fundo removido em favor do CSS Media Queries para maior performance -->
+
+<section class="hero" id="top">
+  <div class="iris-field"></div>
   <div class="wrap">
-    <div class="hero-content reveal">
+    <div class="hero-copy reveal in">
       <span class="eyebrow">Betim — Minas Gerais</span>
       <h1>Visão clara para quem você mais ama.</h1>
-      <p>Centro especializado em oftalmologia veterinária de alta precisão. Cuidado humanizado e tecnologia de ponta para a saúde ocular do seu pet.</p>
-      <div class="hero-btns">
-        <a href="https://wa.me/5531997863666" target="_blank" class="btn btn-gold">Agendar Agora</a>
-        <a href="#servicos" class="btn btn-ghost">Nossos Serviços</a>
+      <p class="lead">Centro especializado em oftalmologia veterinária de alta precisão. Cuidado humanizado e tecnologia de ponta para a saúde ocular do seu pet.</p>
+      <div class="hero-ctas">
+        <a href="https://wa.me/5531997863666" target="_blank" class="btn-primary">Agendar Consulta</a>
+        <a href="#servicos" class="btn-ghost">Nossos Serviços</a>
       </div>
+    </div>
+    <div class="hero-side reveal in">
       <div class="hero-stats">
-        <div><span class="n">16+</span><span class="l">Anos de Experiência</span></div>
-        <div><span class="n">5k+</span><span class="l">Pets Atendidos</span></div>
-        <div><span class="n">24h</span><span class="l">Suporte Pós-Op</span></div>
+        <div><span class="n">16+</span><span class="l">Anos de<br>Experiência</span></div>
+        <div><span class="n">5k+</span><span class="l">Pets<br>Atendidos</span></div>
+        <div><span class="n">24h</span><span class="l">Suporte<br>Pós-Op</span></div>
       </div>
     </div>
   </div>
 </section>
 
+<div class="mascote-section reveal in">
+  <img src="assets/mascote_oftalmovet.png" alt="Mascote Oftalmo Vet">
+</div>
+
 <section class="services" id="servicos">
   <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Especialidades</span>
+    <div class="sec-head reveal in">
+      <div class="divider"></div>
+      <span class="eyebrow">Atendimento Especializado</span>
       <h2>Excelência técnica em cada detalhe.</h2>
-      <p>Oferecemos um espectro completo de cuidados oculares, desde diagnósticos preventivos até cirurgias complexas de microcirurgia ocular.</p>
     </div>
-    <div class="services-grid reveal">
-      <div class="service-card">
-        <div class="icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></div>
-        <h3>Microcirurgia Ocular</h3>
-        <p>Procedimentos avançados para catarata, glaucoma e reconstrução de córnea com microscópio cirúrgico de alta resolução.</p>
+    <div class="service-grid reveal in">
+      <div class="service">
+        <span class="idx">01</span>
+        <h3>Clínicas veterinárias</h3>
+        <p>Parceria estratégica para diagnósticos oftalmológicos precisos e suporte especializado para seus pacientes.</p>
       </div>
-      <div class="service-card">
-        <div class="icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
-        <h3>Exames de Imagem</h3>
-        <p>Ultrassonografia ocular, eletrorretinografia e tomografia para diagnósticos precisos e planejamento cirúrgico.</p>
+      <div class="service">
+        <span class="idx">02</span>
+        <h3>Tutores e pets</h3>
+        <p>Atendimento direto e acolhedor para garantir a melhor saúde ocular e qualidade de vida para seu melhor amigo.</p>
       </div>
-      <div class="service-card">
-        <div class="icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></div>
-        <h3>Atendimento Humanizado</h3>
-        <p>Priorizamos o bem-estar e o conforto emocional do pet e de sua família durante todo o processo de tratamento.</p>
+      <div class="service">
+        <span class="idx">03</span>
+        <h3>Lojas e casas de rações</h3>
+        <p>Suporte e orientação especializada para estabelecimentos que atendem tutores de pets na região.</p>
       </div>
     </div>
   </div>
@@ -320,107 +357,115 @@
 
 <section class="about" id="sobre">
   <div class="wrap">
-    <div class="about-grid">
-      <div class="about-img reveal">
-        <img src="./galeria/clinica_09.webp" alt="Dra. Marília Aparecida Ribeiro">
-      </div>
-      <div class="about-content reveal">
-        <span class="eyebrow">Corpo Clínico</span>
-        <h2>Dra. Marília Aparecida Ribeiro</h2>
-        <p>Com mais de 16 anos de dedicação exclusiva à medicina veterinária, a Dra. Marília é referência em oftalmologia na região de Betim. Sua trajetória é marcada pelo compromisso com a atualização constante e o amor pelos animais.</p>
-        <p>Atua em clínica particular, acreditando que o acesso à saúde ocular de qualidade deve ser um direito de todos os pets.</p>
-        
-        <div class="credentials">
-          <h4>Qualificações Técnicas</h4>
-          <ul>
-            <li><strong>CRMV-MG 12045</strong></li>
-            <li><strong>Formação:</strong> Medicina Veterinária (PUC Minas, 2010)</li>
-            <li><strong>Especializada...</strong></li>
-            <li><strong>Tempo de atuação:</strong> 16 anos</li>
-          </ul>
+    <div class="about-figure reveal in">
+      <img src="assets/oftalmovet_fachada_hd.jpg" alt="Dra. Marília Aparecida Ribeiro">
+    </div>
+    <div class="about-content reveal in">
+      <div class="divider"></div>
+      <span class="eyebrow">Corpo Clínico</span>
+      <h2>Dra. Marília Aparecida Ribeiro</h2>
+      <p>Com mais de 16 anos de dedicação exclusiva à medicina veterinária, a Dra. Marília é referência em oftalmologia na região de Betim. Sua trajetória é marcada pelo compromisso com a atualização constante e o amor pelos animais.</p>
+      <p>Atua em clínica particular, acreditando que o acesso à saúde ocular de qualidade deve ser um direito de todos os pets.</p>
+      
+      <div class="feat-grid">
+        <div class="feat">
+          <span class="eyebrow">Registro</span>
+          <h4>CRMV-MG 12045</h4>
+          <span class="d">Conselho Regional</span>
+        </div>
+        <div class="feat">
+          <span class="eyebrow">Educação</span>
+          <h4><strong>Formação:</strong> Médica Veterinária (PUC Minas, 2010)</h4>
+          <span class="d"><strong>Especializada...</strong></span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="gallery-section" id="galeria">
+<section class="gallery" id="galeria">
   <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Nossa Clínica & Casos</span>
-      <h2>Estrutura e Resultados</h2>
-      <p>Conheça nosso ambiente preparado para receber seu pet e alguns dos resultados de nossos tratamentos e exames.</p>
+    <div class="sec-head reveal in">
+      <div class="divider"></div>
+      <span class="eyebrow">Nossa Clínica</span>
+      <h2>Estrutura preparada para o melhor cuidado.</h2>
     </div>
-
-    <div class="gallery-container">
-      <!-- Grupo 1: A Clínica -->
-      <div class="gallery-group reveal">
-        <h3>A Clínica</h3>
-        <div class="swiper swiper-clinica">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="./galeria/clinica_01.webp" alt="Clínica 1"></div>
-            <div class="swiper-slide"><img src="./galeria/clinica_02.webp" alt="Clínica 2"></div>
-            <div class="swiper-slide"><img src="./galeria/clinica_03.webp" alt="Clínica 3"></div>
-            <div class="swiper-slide"><img src="./galeria/clinica_04.webp" alt="Clínica 4"></div>
-            <div class="swiper-slide"><img src="./galeria/clinica_05.webp" alt="Clínica 5"></div>
-            <div class="swiper-slide"><img src="./galeria/clinica_06.webp" alt="Clínica 6"></div>
-            <div class="swiper-slide"><img src="./galeria/clinica_07.webp" alt="Clínica 7"></div>
-            <div class="swiper-slide"><img src="./galeria/clinica_08.webp" alt="Clínica 8"></div>
-          </div>
-          <div class="swiper-pagination"></div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-        </div>
-      </div>
-
-      <!-- Grupo 2: Atendimentos e Exames -->
-      <div class="gallery-group reveal">
-        <h3>Casos e Exames</h3>
-        <div class="swiper swiper-atendimentos">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="./galeria/atendimentos_01.webp" alt="Atendimento 1"></div>
-            <div class="swiper-slide"><img src="./galeria/atendimentos_02.webp" alt="Atendimento 2"></div>
-            <div class="swiper-slide"><img src="./galeria/atendimentos_03.webp" alt="Atendimento 3"></div>
-            <div class="swiper-slide"><img src="./galeria/atendimentos_04.webp" alt="Atendimento 4"></div>
-            <div class="swiper-slide"><img src="./galeria/atendimentos_05.webp" alt="Atendimento 5"></div>
-            <div class="swiper-slide"><img src="./galeria/atendimentos_06.webp" alt="Atendimento 6"></div>
-            <div class="swiper-slide"><img src="./galeria/atendimentos_07.webp" alt="Atendimento 7"></div>
-            <div class="swiper-slide"><img src="./galeria/atendimentos_08.webp" alt="Atendimento 8"></div>
-            <div class="swiper-slide"><img src="./galeria/atendimentos_09.webp" alt="Atendimento 9"></div>
-            <div class="swiper-slide"><img src="./galeria/atendimentos_10.webp" alt="Atendimento 10"></div>
-            <div class="swiper-slide"><img src="./galeria/atendimentos_11.webp" alt="Atendimento 11"></div>
-            <div class="swiper-slide"><img src="./galeria/atendimentos_12.webp" alt="Atendimento 12"></div>
-            <div class="swiper-slide"><img src="./galeria/atendimentos_13.webp" alt="Atendimento 13"></div>
-            <div class="swiper-slide"><img src="./galeria/atendimentos_14.webp" alt="Atendimento 14"></div>
-            <div class="swiper-slide"><img src="./galeria/atendimentos_15.webp" alt="Atendimento 15"></div>
-            <div class="swiper-slide"><img src="./galeria/atendimentos_16.webp" alt="Atendimento 16"></div>
-            <div class="swiper-slide"><img src="./galeria/atendimentos_17.webp" alt="Atendimento 17"></div>
-          </div>
-          <div class="swiper-pagination"></div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-        </div>
-      </div>
+    <div class="gal-grid reveal in">
+      <div class="gal-item"><img src="assets/galeria/clinica_01.webp" alt="Estrutura 1" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div class="gal-item"><img src="assets/galeria/clinica_02.webp" alt="Estrutura 2" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div class="gal-item"><img src="assets/galeria/clinica_03.webp" alt="Estrutura 3" style="width:100%;height:100%;object-fit:cover;"></div>
+      <div class="gal-item"><img src="assets/galeria/clinica_04.webp" alt="Estrutura 4" style="width:100%;height:100%;object-fit:cover;"></div>
     </div>
   </div>
 </section>
 
-<section class="cta-final" id="contato">
-  <div class="wrap reveal">
-    <h2>Dê ao seu pet a visão que ele merece.</h2>
-    <p>Agende uma avaliação oftalmológica completa e garanta mais qualidade de vida para o seu melhor amigo.</p>
-    <a href="https://wa.me/5531997863666" target="_blank" class="btn btn-gold">Falar com Especialista</a>
+<section class="location" id="localizacao">
+  <div class="wrap">
+    <div class="loc-info reveal in">
+      <div class="divider"></div>
+      <span class="eyebrow">Onde Estamos</span>
+      <h2>Venha nos visitar em Betim.</h2>
+      <p>Localização privilegiada no bairro Angola, com fácil acesso e estacionamento para sua comodidade.</p>
+      <table class="hours-table">
+        <tr><td>Segunda — Sexta</td><td>08:00 – 18:00</td></tr>
+        <tr><td>Sábado</td><td>08:00 – 12:00</td></tr>
+        <tr><td>Domingo</td><td>Fechado</td></tr>
+      </table>
+    </div>
+    <div class="map-frame reveal in">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3749.538562725514!2d-44.1979313!3d-19.9649064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDU3JzUzLjciUyA0NMKwMTEnNTIuNiJX!5e0!3m2!1spt-BR!2sbr!4v1626456789012!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contato">
+  <div class="wrap">
+    <div class="contact-info reveal in">
+      <div class="divider"></div>
+      <span class="eyebrow">Contato</span>
+      <h2>Vamos conversar?</h2>
+      <p>Estamos prontos para tirar suas dúvidas e agendar o melhor horário para o seu pet.</p>
+      <div class="line">
+        <span class="eyebrow">Endereço</span>
+        <span>Rua do Rosário, 1104 — Angola, Betim/MG</span>
+      </div>
+      <div class="line">
+        <span class="eyebrow">WhatsApp</span>
+        <a href="https://wa.me/5531997863666" target="_blank">(31) 99786-3666</a>
+      </div>
+      <div class="line">
+        <span class="eyebrow">Instagram</span>
+        <a href="https://instagram.com/oftalmo_vet_betim" target="_blank">@oftalmo_vet_betim</a>
+      </div>
+    </div>
+    <div class="contact-form reveal in">
+      <form action="#" class="card">
+        <div class="field">
+          <label>Nome do Tutor</label>
+          <input type="text" placeholder="Seu nome completo">
+        </div>
+        <div class="field">
+          <label>Nome do Pet</label>
+          <input type="text" placeholder="Como ele se chama?">
+        </div>
+        <div class="field">
+          <label>Mensagem</label>
+          <textarea placeholder="Como podemos ajudar hoje?"></textarea>
+        </div>
+        <button type="submit" class="btn-primary submit">Enviar Mensagem</button>
+      </form>
+    </div>
   </div>
 </section>
 
 <section class="inauguracao" id="inauguracao" style="padding: 140px 0; background: #fff;">
   <div class="wrap">
-    <div class="section-head reveal">
+    <div class="sec-head reveal in">
       <span class="eyebrow">Inauguração</span>
       <h2>Um novo capítulo para a Oftalmo Vet</h2>
       <p>Nossa nova sede foi planejada em cada detalhe para oferecer o que há de mais moderno em oftalmologia veterinária, com o conforto e a segurança que seu pet merece.</p>
     </div>
-    <div class="about-img reveal" style="max-width: 800px; margin: 0 auto;">
+    <div class="about-figure reveal in" style="max-width: 800px; margin: 0 auto;">
       <img src="./foto1_fachada.jpg" alt="Inauguração da Clínica" style="width: 100%; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.08);">
     </div>
   </div>
@@ -428,80 +473,61 @@
 
 <footer>
   <div class="wrap">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <div class="footer-logo">Oftalmo Vet</div>
-        <p>Especialistas em saúde ocular animal. Tecnologia e carinho para a visão do seu pet.</p>
-      </div>
-      <div class="footer-col">
-        <h5>Atendimento</h5>
-        <p>Rua do Rosário, 1104<br>Angola, Betim - MG</p>
-        <p>Segunda a Sexta: 08h às 18h<br>Sábado: 08h às 12h</p>
-      </div>
-      <div class="footer-col">
-        <h5>Contato</h5>
-        <a href="tel:5531997863666">(31) 99786-3666</a>
-        <a href="https://wa.me/5531997863666">WhatsApp</a>
-        <a href="https://instagram.com/oftalmo_vet_betim">Instagram</a>
-      </div>
+    <div class="fbrand">Oftalmo Vet</div>
+    <div class="flinks">
+      <a href="#servicos">Serviços</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#contato">Contato</a>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 Oftalmo Vet. Todos os direitos reservados.</p>
-      <p>Desenvolvido por Site-ofc</p>
+    <div class="fmeta">
+      &copy; 2026 Oftalmo Vet Betim.<br>
+      Todos os direitos reservados.
     </div>
   </div>
 </footer>
 
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
 <script>
-  // Mobile Menu
-  const toggle = document.getElementById('navtoggle');
-  const menu = document.getElementById('mobilemenu');
-  toggle.addEventListener('click', () => {
-    toggle.classList.toggle('open');
-    menu.classList.toggle('open');
-  });
-  menu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => {
-    toggle.classList.remove('open');
-    menu.classList.remove('open');
-  }));
+  // Mobile Menu Toggle
+  const navToggle = document.getElementById('navToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const siteHeader = document.getElementById('siteHeader');
 
-  // Scroll Header
-  window.addEventListener('scroll', () => {
-    const header = document.querySelector('header.site');
-    if(window.scrollY > 50) header.classList.add('scrolled');
-    else header.classList.remove('scrolled');
+  navToggle.addEventListener('click', () => {
+    navToggle.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
   });
 
-  // Reveal Animation
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting) entry.target.classList.add('in');
+  // Close menu on link click
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navToggle.classList.remove('open');
+      mobileMenu.classList.remove('open');
     });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(r => observer.observe(r));
-
-  // Swiper Clinica
-  new Swiper('.swiper-clinica', {
-    slidesPerView: 'auto',
-    spaceBetween: 20,
-    centeredSlides: true,
-    loop: true,
-    pagination: { el: '.swiper-pagination', clickable: true },
-    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
   });
 
-  // Swiper Atendimentos
-  new Swiper('.swiper-atendimentos', {
-    slidesPerView: 'auto',
-    spaceBetween: 20,
-    centeredSlides: true,
-    loop: true,
-    pagination: { el: '.swiper-pagination', clickable: true },
-    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+  // Header scroll effect
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      siteHeader.classList.add('scrolled');
+    } else {
+      siteHeader.classList.remove('scrolled');
+    }
   });
+
+  // Reveal animations on scroll
+  const revealElements = document.querySelectorAll('.reveal');
+  const revealOnScroll = () => {
+    revealElements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.9) {
+        el.classList.add('in');
+      }
+    });
+  };
+
+  window.addEventListener('scroll', revealOnScroll);
+  revealOnScroll(); // Initial check
 </script>
 
 </body>
